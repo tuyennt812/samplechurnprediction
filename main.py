@@ -125,7 +125,7 @@ def main():
         input_data = add_sidebar() 
         with st.container():
             st.markdown("<h1 style='text-align: center; font-size: 30px;'>Churn Prediction</h1>", unsafe_allow_html=True)
-            st.write("Using machine learning, the app analyzes historical data to predict potential churners. With interactive sidebar inputs, explore scenarios to optimize retention strategies. While a sample, it highlights the value of proactive customer management and predictive analytics for business success.")
+            st.write("Using machine learning, the app analyzes historical data to predict potential churners. With interactive sidebar inputs, explore scenarios to optimize retention strategies. Please adjust the sidebar inputs to see the predictions.")
         
         col1, col2 = st.columns([4,2])
         with col1:
