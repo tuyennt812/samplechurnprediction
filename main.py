@@ -4,8 +4,6 @@ import numpy as np
 import pickle
 import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
-from streamlit_pandas_profiling import st_profile_report
-from ydata_profiling import ProfileReport
 
 def get_clean_data():
   data = pd.read_csv('./data/data_transform.csv').drop(['Exited'],axis=1)
@@ -112,8 +110,8 @@ def profile_report():
 def main():
     selected = option_menu(
        menu_title = "",
-       options = ["Home","EDA","Links",],
-       icons = ["house",'book','envelope'],
+       options = ["Home","Links"],
+       icons = ["house",'envelope'],
        menu_icon = 'cast',
        default_index = 0,
        orientation = "horizontal"
@@ -135,12 +133,6 @@ def main():
         with col2:
             add_predictions(input_data)
 
-##-------------------------------------EDA-------------------------------------    
-    if selected == "EDA":
-        profile = profile_report()
-        with st.spinner("Generating Report....\nplease wait...."):
-            st.components.v1.html(profile.to_html(), width=1000, height=1200, scrolling=True)  
- 
 ##-------------------------------------Useful links-------------------------------------
     if selected == "Links":
         st.write("Please visit the link below to see the codebook for creating the model and the app you are currently viewing. The link showcases techniques such as feature selection, class imbalance handling, model selection, and hyperparameter tuning. All processes are integrated into pipelines to avoid data leakage. The SHAP explanation includes feature importance with a beeswarm plot, SHAP dependence plot with and without interaction to investigate relationships between variables, and interpretation of local prediction with SHAP waterfall plot and force plot.")        
